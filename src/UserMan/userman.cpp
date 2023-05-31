@@ -17,6 +17,7 @@ struct UserMan {
 fstream DB_USERS;
 
 void login();
+void signin();
 UserMan find_user(string username, string password);
 
 int main(){
@@ -51,6 +52,10 @@ void login(){
     }
 }
 
+void signin(){
+
+}
+
 
 UserMan find_user(string username, string password){
     DB_USERS.open(DB_NAME);
@@ -68,11 +73,13 @@ UserMan find_user(string username, string password){
         getline(ss, user_temp.password, ',');
         getline(ss, user_temp.role);
         if (user_temp.username == username && user_temp.password == password)
+            DB_USERS.close();
             return user_temp;
     }
 
     // return none user
     // login tidak valid
+    DB_USERS.close();
     UserMan none_user;
     return none_user;
 };
