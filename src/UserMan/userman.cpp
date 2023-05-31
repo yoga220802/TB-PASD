@@ -54,7 +54,7 @@ void login(){
 
 UserMan find_user(string username, string password){
     DB_USERS.open(DB_NAME);
-    string line, usr, pwd, role;
+    string line;
     int pos;
 
     // skip satu baris
