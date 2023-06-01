@@ -11,7 +11,3 @@ string garis(string type, int jml) {
     
     return _garis;
 }
-
-int main() {
-    cout << garis("=", 10);
-}
