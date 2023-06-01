@@ -4,7 +4,7 @@ using namespace std;
 #include "..\modules\stack.cpp"
 
 // program yg menerapkan stack
-int main() {
+int programStack() {
     Stack programStack;
     cout << "Coba Push\n";
     programStack.push("asd");
@@ -24,4 +24,6 @@ int main() {
     programStack.clear();
     programStack.show_stack();
     // program stack
+
+    return 0;
 }

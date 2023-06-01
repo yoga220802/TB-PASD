@@ -4,26 +4,24 @@
 #include <sstream>
 #include <vector>
 
+#include "../utils/dataType.h"
+
 #define DB_NAME "./src/DB/users.csv"
 
 using namespace std;
 
-struct UserMan {
-    string username;
-    string password;
-    string role;
-};
+
 
 // global variable untuk menampung data users
 fstream DB_USERS;
-vector<UserMan> DB;
-UserMan *curr_user = nullptr;
+vector<UserData> DB;
+UserData *curr_user = nullptr;
 
 
 void init();
 void login();
 bool find_user(string username, string password);
-void update_user(UserMan &user);
+void update_user(UserData &user);
 void store_user();
 void display();
 
@@ -58,7 +56,7 @@ void init() {
 
     while (getline(DB_USERS, line)) {
         stringstream ss(line);
-        UserMan user_tmp;
+        UserData user_tmp;
 
         getline(ss, user_tmp.username, ',');
         getline(ss, user_tmp.password, ',');
@@ -104,7 +102,7 @@ void login() {
 }
 
 bool find_user(string username, string password) {
-    for (UserMan& user : DB) {
+    for (UserData& user : DB) {
         if (user.username == username && user.password == password) {
             curr_user = &user;
             return true;
@@ -113,7 +111,7 @@ bool find_user(string username, string password) {
     return false;
 }
 
-void update_user(UserMan& user) {
+void update_user(UserData& user) {
     // TODO: WIP
     cout << "Username Baru  : ";
     cin >> user.username;
@@ -127,7 +125,7 @@ void store_user() {
     DB_USERS.open(DB_NAME, ios::out | ios::trunc);
     DB_USERS << "username,password,role" << endl;
 
-    for (UserMan& user : DB) {
+    for (UserData& user : DB) {
         DB_USERS << user.username << ",";
         DB_USERS << user.password << ",";
         DB_USERS << user.role << endl;
@@ -139,7 +137,7 @@ void display() {
     // TODO: WIP
     cout << "----------" << endl;
     cout << "USERS (" << DB.size() << ")" << endl;
-    for (UserMan& user : DB) {
+    for (UserData& user : DB) {
         cout << user.username << ":" << user.password << ":" << user.role << endl;
     }
 }
