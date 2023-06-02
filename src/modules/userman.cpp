@@ -10,9 +10,6 @@
 
 using namespace std;
 
-
-
-// global variable untuk menampung data users
 fstream DB_USERS;
 vector<UserData> DB;
 UserData *curr_user = nullptr;
@@ -23,7 +20,7 @@ void login();
 bool find_user(string username, string password);
 void update_user(UserData &user);
 void store_user();
-void display();
+void display_users();
 
 int main() {
     init();
@@ -62,7 +59,6 @@ void init() {
         getline(ss, user_tmp.password, ',');
         getline(ss, user_tmp.role);
 
-        // Menyimpan semua user ke vector
         DB.push_back(user_tmp);
     }
     DB_USERS.close();
@@ -102,7 +98,7 @@ void login() {
 }
 
 bool find_user(string username, string password) {
-    for (UserData& user : DB) {
+    for (UserData &user : DB) {
         if (user.username == username && user.password == password) {
             curr_user = &user;
             return true;
@@ -111,7 +107,7 @@ bool find_user(string username, string password) {
     return false;
 }
 
-void update_user(UserData& user) {
+void update_user(UserData &user) {
     // TODO: WIP
     cout << "Username Baru  : ";
     cin >> user.username;
@@ -125,19 +121,19 @@ void store_user() {
     DB_USERS.open(DB_NAME, ios::out | ios::trunc);
     DB_USERS << "username,password,role" << endl;
 
-    for (UserData& user : DB) {
+    for (UserData &user : DB) {
         DB_USERS << user.username << ",";
         DB_USERS << user.password << ",";
         DB_USERS << user.role << endl;
     }
-    DB_USERS.close(); // Menutup file setelah selesai
+    DB_USERS.close();
 }
 
-void display() {
+void display_users() {
     // TODO: WIP
     cout << "----------" << endl;
     cout << "USERS (" << DB.size() << ")" << endl;
-    for (UserData& user : DB) {
+    for (UserData &user : DB){
         cout << user.username << ":" << user.password << ":" << user.role << endl;
     }
 }

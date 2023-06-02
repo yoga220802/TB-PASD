@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "..\modules\stack.cpp"
+#include "../modules/stack.cpp"
 
 // program yg menerapkan stack
 int programStack() {
