@@ -10,40 +10,16 @@
 
 using namespace std;
 
-
-
-// global variable untuk menampung data users
 fstream DB_USERS;
 vector<UserData> DB;
 UserData *curr_user = nullptr;
 
 
 void init();
-void login();
 bool find_user(string username, string password);
 void update_user(UserData &user);
 void store_user();
 void display();
-
-int main() {
-    init();
-    login();
-
-    // TODO: DEBUG
-    cout << "Curr User: " << endl;
-    cout << curr_user->username << ":" << curr_user->password << ":" << curr_user->role << endl << endl;
-
-    update_user(*curr_user);
-    display(); // Display semua user
-    store_user();
-
-    // Cek apakah ada perubahan di dalam file csv
-    cout << "---------" << endl;
-    cout << "Get all" << endl;
-
-    init();    // Memuat ulang file
-    display(); // apakah user
-}
 
 void init() {
     DB.clear();
@@ -66,39 +42,6 @@ void init() {
         DB.push_back(user_tmp);
     }
     DB_USERS.close();
-}
-
-void login() {
-    string username, password;
-
-    while (true) {
-        bool auth = false;
-
-        cout << "Masukkan Username : ";
-        cin >> username;
-        cout << "Masukkan password : ";
-        cin >> password;
-
-        auth = find_user(username, password);
-        if (!auth) {
-            cout << "Tidak dapat ijin akses" << endl;
-            continue;
-        }
-
-        if (curr_user->role == "admin") {
-            // admin
-            cout << "Selamat datang admin (" << curr_user->username << ")" << endl;
-            break;
-        } else if (curr_user->role == "stack") {
-            // stack user
-            cout << "Selamat datang user Stack (" << curr_user->username << ")" << endl;
-            break;
-        } else if (curr_user->role == "queue") {
-            // Queue User
-            cout << "Selamat datang user queue (" << curr_user->username << ")" << endl;
-            break;
-        }
-    }
 }
 
 bool find_user(string username, string password) {
@@ -130,11 +73,10 @@ void store_user() {
         DB_USERS << user.password << ",";
         DB_USERS << user.role << endl;
     }
-    DB_USERS.close(); // Menutup file setelah selesai
+    DB_USERS.close();
 }
 
 void display() {
-    // TODO: WIP
     cout << "----------" << endl;
     cout << "USERS (" << DB.size() << ")" << endl;
     for (UserData& user : DB) {
