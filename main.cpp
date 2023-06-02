@@ -10,7 +10,6 @@ using namespace std;
 
 #include "./src/utils/dataType.h"
 #include "./src/utils/login.cpp"
-// #include "./src/utils/garis.cpp"
 
 int main() {
     init();
@@ -37,7 +36,7 @@ int main() {
             // stack user
             cout << "Selamat datang user Stack (" << username << ")" << endl << endl;
             cout << "Demo Program Stack" << endl;
-            programStack();
+            // programStack();
             break;
         } else if (auth.role == "queue") {
             // Queue User

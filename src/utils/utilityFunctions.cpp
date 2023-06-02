@@ -8,6 +8,9 @@ string garis(string type, int jml) {
     for (int i = 0; i < jml; i++) {
         _garis += type;
     }
-    
     return _garis;
+}
+
+void clrscr() {
+    cout << "\033c";
 }
