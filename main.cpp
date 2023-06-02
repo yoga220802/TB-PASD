@@ -1,7 +1,4 @@
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
 #include <vector>
 using namespace std;
 
@@ -10,11 +7,16 @@ using namespace std;
 
 #include "./src/utils/dataType.h"
 #include "./src/utils/login.cpp"
+#include "./src/utils/utilityFunctions.h"
 
 int main() {
     init();
+
     string username, password;
     LoginReturn auth;
+
+    vector<string> dataPelamar = {};
+    
     while (true) {
 
         cout << "Masukkan Username : ";
@@ -34,9 +36,9 @@ int main() {
             break;
         } else if (auth.role == "stack") {
             // stack user
-            cout << "Selamat datang user Stack (" << username << ")" << endl << endl;
-            cout << "Demo Program Stack" << endl;
-            // programStack();
+            // cout << "Selamat datang user Stack (" << username << ")" << endl << endl;
+            // cout << "Demo Program Stack" << endl;
+            programStack(dataPelamar);
             break;
         } else if (auth.role == "queue") {
             // Queue User
@@ -48,7 +50,7 @@ int main() {
     }
 
     // TODO: DEBUG
-    cout << endl << "Curr User: " << endl;
-    cout << username << ":" << password << ":" << auth.role << endl << endl;
+    // cout << endl << "Curr User: " << endl;
+    // cout << username << ":" << password << ":" << auth.role << endl << endl;
 
 }
