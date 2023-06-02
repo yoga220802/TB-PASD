@@ -1,3 +1,6 @@
+#ifndef UTILITYFUNCTIONS_H
+#define UTILITYFUNCTIONS_H
+
 #include <iostream>
 
 using namespace std;
@@ -14,3 +17,5 @@ string garis(string type, int jml) {
 void clrscr() {
     cout << "\033c";
 }
+
+#endif
