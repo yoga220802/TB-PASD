@@ -100,5 +100,5 @@ void programStack(vector<string> data_lamaran) {
     cout << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
     } while (pilihan != 4);
-    
+    cout << endl;
 }

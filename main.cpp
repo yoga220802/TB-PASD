@@ -17,13 +17,24 @@ int main() {
 
     vector<string> dataPelamar = {};
     
-    while (true) {
+    int index;
 
-        cout << "Masukkan Username : ";
-        cin >> username;
-        cout << "Masukkan password : ";
-        cin >> password;
+    while(true){
+        // WIP
+        clrscr();
+        cout << endl << "\t\tSelamat datang di program lamaran" << endl << endl
+             << "1. Login" << endl
+             << "2. Keluar " << endl << endl
+             << "Pilih Menu >> ";
+        cin >> index;
 
+        // langsung cek jika pilih menu 2
+        if (index == 2){
+            break;
+        }
+        cout << endl << endl;
+        cout << "Masukkan Username : "; cin >> username;
+        cout << "Masukkan password : "; cin >> password;
         auth = login(username, password);
         if (!auth.loggedIn) {
             cout << "Tidak dapat ijin akses" << endl;
@@ -36,10 +47,7 @@ int main() {
             break;
         } else if (auth.role == "stack") {
             // stack user
-            // cout << "Selamat datang user Stack (" << username << ")" << endl << endl;
-            // cout << "Demo Program Stack" << endl;
             programStack(dataPelamar);
-            break;
         } else if (auth.role == "queue") {
             // Queue User
             cout << "Selamat datang user queue (" << username << ")" << endl << endl;
@@ -48,9 +56,7 @@ int main() {
             break;
         }
     }
-
-    // TODO: DEBUG
-    // cout << endl << "Curr User: " << endl;
-    // cout << username << ":" << password << ":" << auth.role << endl << endl;
-
+    cout << endl << "Keluar dari program berhasil" << endl
+         << endl << "klik tombol apapun untuk melanjutkan...";
+    getch();
 }
