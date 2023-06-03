@@ -38,7 +38,7 @@ vector<string> programQueue(vector<string> dataLamaran) {
         << "2. Ambil Surat Lamaran" << endl
         << "3. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
-
+        cin.ignore();
         switch (pilihan)
         {
         // kondisi user memilih untuk antrian lamaran
@@ -48,7 +48,7 @@ vector<string> programQueue(vector<string> dataLamaran) {
             programQueue.show_queue();
 
             // masukan nama pelamar
-            cout << endl << "Nama pelamar : "; cin >> pelamar;
+            cout << endl << "Nama pelamar : "; getline(cin, pelamar);
 
             // menambahkan pelamar baru ke objek queue
             programQueue.enqueue(pelamar);

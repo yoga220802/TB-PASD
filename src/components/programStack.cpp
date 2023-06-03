@@ -39,6 +39,7 @@ void programStack(vector<string> data_lamaran) {
         cout << "3. Buang Semua Surat Lamaran" << endl;
         cout << "4. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
+        cin.ignore();
 
         switch (pilihan)
         {
@@ -49,7 +50,7 @@ void programStack(vector<string> data_lamaran) {
             programStack.show_stack();
 
             // masukan nama pelamar
-            cout << endl << "Nama pelamar : "; cin >> pelamar;
+            cout << endl << "Nama pelamar : "; getline(cin, pelamar);
 
             // menambahkan pelamar baru ke objek stack
             programStack.push(pelamar);
