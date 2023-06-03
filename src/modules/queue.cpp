@@ -14,7 +14,6 @@ public:
 
     string dequeue() {
         if (queue.empty()) {
-            cout << "Queue kosong" << endl;
             return "";
         } else {
         string front = queue.front();
