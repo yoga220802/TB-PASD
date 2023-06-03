@@ -52,10 +52,11 @@ int main() {
             // Queue User
             cout << "Selamat datang user queue (" << username << ")" << endl << endl;
             cout << "Demo Program Queue" << endl;
-            programQueue();
+            programQueue(dataPelamar);
             break;
         }
     }
+
     cout << endl << "Keluar dari program berhasil" << endl
          << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
