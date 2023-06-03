@@ -1,3 +1,6 @@
+#ifndef UTILITYFUNCTIONS_H
+#define UTILITYFUNCTIONS_H
+
 #include <iostream>
 
 using namespace std;
@@ -8,10 +11,11 @@ string garis(string type, int jml) {
     for (int i = 0; i < jml; i++) {
         _garis += type;
     }
-    
     return _garis;
 }
 
-int main() {
-    cout << garis("=", 10);
+void clrscr() {
+    cout << "\033c";
 }
+
+#endif

@@ -8,7 +8,7 @@
 using namespace std;
 
     // Contoh penggunaan
-int main() {
+int programQueue() {
     Queue queue;
 
     cout << "Coba enque\n";
