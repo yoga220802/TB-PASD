@@ -15,8 +15,8 @@ vector<string> programQueue(vector<string> dataLamaran) {
 
     // pembuatan variabel
     vector<string> lamaran = dataLamaran; // Penampung data lamaran yang dibawa saat lagin
-    int pilihan = 4; // penampung menu pilihan user
-    string pelamar; // penampung nama pelamar yang akan dimasukan ke antrian 
+    int pilihan; // penampung menu pilihan user
+    string pelamar, confirmLogout = "y"; // penampung nama pelamar yang akan dimasukan ke antrian 
 
     /*
     cek data pelamar yang dibawa saat login
@@ -30,12 +30,12 @@ vector<string> programQueue(vector<string> dataLamaran) {
 
     // menu program utama
     do {
-        clrscr(); // Bersihkan layar setiap kali program stack dimulai
+        clrscr(); // Bersihkan layar setiap kali program queue dimulai
 
         cout << "\t\tProgram Antrian Calon Pegawai" << endl
         << "\nPosisi anda sebagai pelamar pekerjaan.\nSilahkan pilih menu dibawah ini" << endl << endl
-        << "1. Ambil antrian" << endl
-        << "2. Berikan Surat Lamaran" << endl
+        << "1. Berikan antrian" << endl
+        << "2. Ambil Surat Lamaran" << endl
         << "3. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
 
@@ -50,7 +50,7 @@ vector<string> programQueue(vector<string> dataLamaran) {
             // masukan nama pelamar
             cout << endl << "Nama pelamar : "; cin >> pelamar;
 
-            // menambahkan pelamar baru ke objek stack
+            // menambahkan pelamar baru ke objek queue
             programQueue.enqueue(pelamar);
             
             // pesan validasi bahwa antrian pelamar baru telah ditambahkan
@@ -72,25 +72,23 @@ vector<string> programQueue(vector<string> dataLamaran) {
             */
             if (pelamar != "") {
                 cout << endl << "Surat lamaran dari " << pelamar << " sudah diambil" << endl;
+                lamaran.push_back(pelamar);
             } else {
                 cout << endl << "Tidak ada surat lamaran untuk diambil" << endl;
             }
             break;
         
         case 3:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-
-            // konfirmasi bahwa data dalam stack akan dihapus
-            cout << endl << "Data dalam tumpukan akan dihapus" << endl;;
+            cout << endl << "Jika anda logout, antrian pelamar yang belum memberikan surat lamaran akan dihapus." << endl
+            << "Apakah anda akan keluar? "; cin >> confirmLogout;
+            if (confirmLogout == "Y" || confirmLogout == "y") {
+            // pemberitahuan bahwa berhasil logout
+            cout << endl << "Logout berhasil, dan semua antrian dihapus" << endl;
             programQueue.clear_queue();
             break;
-
-        case 4:
-            // pemberitahuan bahwa berhasil logout
-            cout << endl << "Logout berhasil." << endl;
-            break;
+            } else {
+                cout << "Batal logout";
+            }
 
         default:
             break;
@@ -98,7 +96,12 @@ vector<string> programQueue(vector<string> dataLamaran) {
 
     cout << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
-    } while (pilihan != 3);
+    } while (pilihan != 3 && confirmLogout != "Y" ||confirmLogout != "y");
 
     return lamaran;
 }
+
+// int main() {
+//     vector<string> dataLamaran = {};
+//     programQueue(dataLamaran);
+// }
