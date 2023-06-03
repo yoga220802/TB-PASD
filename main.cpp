@@ -29,9 +29,9 @@ int main() {
         cin >> index;
 
         // langsung cek jika pilih menu 2
-        if (index == 2){
-            break;
-        }
+        if (index == 2) break;
+        if (index != 1) continue;
+
         cout << endl << endl;
         cout << "Masukkan Username : "; cin >> username;
         cout << "Masukkan password : "; cin >> password;
