@@ -1,5 +1,9 @@
 #include <iostream>
+#include <vector>
+#include <conio.h>
+
 #include "../modules/queue.cpp"
+#include "../utils/utilityFunctions.h"
 
 using namespace std;
 
