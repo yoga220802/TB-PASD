@@ -9,12 +9,12 @@
 using namespace std;
 
     // program Pegawai sebagai program menerapkan queue
-vector<string> programQueue(vector<string> dataLamaran) {
+vector<string> programQueue() {
     // inisialsiasi objek queue
     Queue programQueue;
 
     // pembuatan variabel
-    vector<string> lamaran = dataLamaran; // Penampung data lamaran yang dibawa saat lagin
+    vector<string> lamaran; // Penampung data lamaran yang dibawa saat lagin
     int pilihan; // penampung menu pilihan user
     string pelamar, confirmLogout = "y"; // penampung nama pelamar yang akan dimasukan ke antrian 
 
@@ -22,11 +22,6 @@ vector<string> programQueue(vector<string> dataLamaran) {
     cek data pelamar yang dibawa saat login
     jika tidak kosong maka semua data dimasukan ke objek queue
      */
-    if (!lamaran.empty()) {
-        for (int i = 0; i < lamaran.size(); i++) {
-            programQueue.enqueue(lamaran[i]);
-        }
-    }
 
     // menu program utama
     do {

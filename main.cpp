@@ -15,7 +15,8 @@ int main() {
     string username, password;
     LoginReturn auth;
 
-    vector<string> dataPelamar;
+    vector<string> dataPelamar; // menampung hasil return dari program queue 
+    vector<string> sisaPelamar;
     
     int index;
 
@@ -47,10 +48,10 @@ int main() {
             break;
         } else if (auth.role == "stack") {
             // stack user
-            programStack(dataPelamar);
+            sisaPelamar = programStack(dataPelamar, sisaPelamar);
         } else if (auth.role == "queue") {
             // Queue User
-            dataPelamar = programQueue(dataPelamar);
+            dataPelamar = programQueue();
         }
     }
 
