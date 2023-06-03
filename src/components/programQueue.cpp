@@ -34,14 +34,17 @@ vector<string> programQueue() {
         << "3. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
         cin.ignore();
+
+        if (pilihan < 3) {
+            // menampilkan seluruh pelamar
+            cout << endl << "\tAntrian Pelamar" << endl;
+            programQueue.show_queue();
+        }
+
         switch (pilihan)
         {
         // kondisi user memilih untuk antrian lamaran
         case 1:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-
             // masukan nama pelamar
             cout << endl << "Nama pelamar : "; getline(cin, pelamar);
 
@@ -53,10 +56,6 @@ vector<string> programQueue() {
             break;
         
         case 2:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-
             // menampung data pelamar yang sudah memberikan surat lamaran
             pelamar = programQueue.dequeue();
 

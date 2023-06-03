@@ -49,14 +49,16 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
         << endl << "Pilih Menu >> "; cin >> pilihan;
         cin.ignore();
 
-        switch (pilihan)
-        {
-        // kondisi user memilih untuk menerima surat lamaran baru
-        case 1:
+        if (pilihan < 4) {
             // menampilkan seluruh pelamar
             cout << endl << "\tTumpukan Surat Lamaran" << endl;
             programStack.show_stack();
 
+        }
+        
+        switch (pilihan) {
+        // kondisi user memilih untuk menerima surat lamaran baru
+        case 1:
             // masukan nama pelamar
             cout << endl << "Nama pelamar : "; getline(cin, pelamar);
 
@@ -69,17 +71,12 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
             break;
         
         case 2:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tTumpukan Surat Lamaran" << endl;
-            programStack.show_stack();
-
             // menampung data pelamar yang sudah dibaca
             pelamar = programStack.pop();
 
             if (_sisaLamaran.size() > 0) {
                 _sisaLamaran.pop_back();
             }
-            
             
             /*
             pengecekan apakah data pelamar kosong atau tidak
@@ -94,13 +91,10 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
             break;
         
         case 3:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tTumpukan Surat Lamaran" << endl;
-            programStack.show_stack();
-
             // konfirmasi bahwa data dalam stack akan dihapus
             cout << endl << "Data dalam tumpukan akan dihapus" << endl;;
-            programStack.clear();
+            programStack.clear_stack();
+            _sisaLamaran.clear();
             break;
 
         case 4:

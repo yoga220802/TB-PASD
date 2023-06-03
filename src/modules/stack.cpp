@@ -22,7 +22,7 @@ public:
         } 
     }
 
-    void clear() {
+    void clear_stack() {
         stack.clear();
     }
 
