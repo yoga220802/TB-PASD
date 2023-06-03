@@ -53,6 +53,7 @@ int main() {
             dataPelamar = programQueue(dataPelamar);
         }
     }
+
     cout << endl << "Keluar dari program berhasil" << endl
         << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
