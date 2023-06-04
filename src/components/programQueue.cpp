@@ -9,12 +9,12 @@
 using namespace std;
 
     // program Pegawai sebagai program menerapkan queue
-vector<string> programQueue(vector<string> dataLamaran) {
+vector<string> programQueue() {
     // inisialsiasi objek queue
     Queue programQueue;
 
     // pembuatan variabel
-    vector<string> lamaran = dataLamaran; // Penampung data lamaran yang dibawa saat lagin
+    vector<string> lamaran; // Penampung data lamaran yang dibawa saat lagin
     int pilihan; // penampung menu pilihan user
     string pelamar, confirmLogout = "y"; // penampung nama pelamar yang akan dimasukan ke antrian 
 
@@ -22,11 +22,6 @@ vector<string> programQueue(vector<string> dataLamaran) {
     cek data pelamar yang dibawa saat login
     jika tidak kosong maka semua data dimasukan ke objek queue
      */
-    if (!lamaran.empty()) {
-        for (int i = 0; i < lamaran.size(); i++) {
-            programQueue.enqueue(lamaran[i]);
-        }
-    }
 
     // menu program utama
     do {
@@ -38,17 +33,20 @@ vector<string> programQueue(vector<string> dataLamaran) {
         << "2. Ambil Surat Lamaran" << endl
         << "3. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
+        cin.ignore();
+
+        if (pilihan < 3) {
+            // menampilkan seluruh pelamar
+            cout << endl << "\tAntrian Pelamar" << endl;
+            programQueue.show_queue();
+        }
 
         switch (pilihan)
         {
         // kondisi user memilih untuk antrian lamaran
         case 1:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-
             // masukan nama pelamar
-            cout << endl << "Nama pelamar : "; cin >> pelamar;
+            cout << endl << "Nama pelamar : "; getline(cin, pelamar);
 
             // menambahkan pelamar baru ke objek queue
             programQueue.enqueue(pelamar);
@@ -58,10 +56,6 @@ vector<string> programQueue(vector<string> dataLamaran) {
             break;
         
         case 2:
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-
             // menampung data pelamar yang sudah memberikan surat lamaran
             pelamar = programQueue.dequeue();
 

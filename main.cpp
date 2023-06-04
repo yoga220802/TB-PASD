@@ -15,7 +15,8 @@ int main() {
     string username, password;
     LoginReturn auth;
 
-    vector<string> dataPelamar = {};
+    vector<string> dataPelamar; // menampung hasil return dari program queue 
+    vector<string> sisaPelamar;
     
     int index;
 
@@ -28,6 +29,7 @@ int main() {
              << "1) Login" << endl
              << "2) Keluar " << endl << endl
              << "Pilih [1-2] >> ";
+
         cin >> index;
 
         cin.clear();
@@ -60,17 +62,14 @@ int main() {
             break;
         } else if (auth.role == "stack") {
             // stack user
-            programStack(dataPelamar);
+            sisaPelamar = programStack(dataPelamar, sisaPelamar);
         } else if (auth.role == "queue") {
             // Queue User
-            cout << "Selamat datang user queue (" << username << ")" << endl << endl;
-            cout << "Demo Program Queue" << endl;
-            programQueue(dataPelamar);
-            break;
+            dataPelamar = programQueue();
         }
     }
 
     cout << endl << "Keluar dari program berhasil" << endl
-         << endl << "klik tombol apapun untuk melanjutkan...";
+        << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
 }
