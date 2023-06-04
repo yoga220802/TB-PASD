@@ -95,6 +95,7 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
             cout << endl << "Data dalam tumpukan akan dihapus" << endl;;
             programStack.clear_stack();
             _sisaLamaran.clear();
+            _dataLamaran.clear();
             break;
 
         case 4:
