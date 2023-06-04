@@ -23,24 +23,38 @@ int main() {
     while(true){
         // WIP
         clrscr();
-        cout << endl << "\t\tSelamat datang di program lamaran" << endl << endl
-            << "1. Login" << endl
-            << "2. Keluar " << endl << endl
-            << "Pilih Menu >> ";
+        cout << endl << "Selamat Datang Di Program Lamaran" << endl
+             << garis("-", 50) << endl
+             << "Silahkan login terlebih dahulu untuk masuk ke program lamaran" << endl
+             << "1) Login" << endl
+             << "2) Keluar " << endl << endl
+             << "Pilih [1-2] >> ";
+
         cin >> index;
+
+        cin.clear();
+        cin.ignore();
 
         // langsung cek jika pilih menu 2
         if (index == 2) break;
         if (index != 1) continue;
 
-        cout << endl << endl;
-        cout << "Masukkan Username : "; cin >> username;
-        cout << "Masukkan password : "; cin >> password;
+        clrscr();
+
+        cout << endl << "LOGIN" << endl << garis("-", 50) << endl;
+        cout << "Username : "; getline(cin, username);
+        cout << "Password : "; getline(cin, password);
+
         auth = login(username, password);
         if (!auth.loggedIn) {
-            cout << "Tidak dapat ijin akses" << endl;
+            cout << "Tidak dapat ijin akses" << endl
+                 << endl << "klik tombol apapun untuk melanjutkan...";
+            getch();
+            cin.clear();
             continue;
         }
+
+        cout << endl << endl << "Login Berhasil" << endl << endl;
 
         if (auth.role == "admin") {
             // admin
