@@ -20,6 +20,7 @@ bool find_user(string username);
 int update_user(UserData &user);
 void store_user();
 void display();
+void add_user();
 
 void init() {
     DB.clear();
@@ -57,7 +58,7 @@ int update_user(UserData& user) {
     string username, role;
 
     while (true) {
-    cout << "Username Baru  : ";
+        cout << "Username Baru  : ";
         cin >> username;
 
         // mencari username yang sama
@@ -82,7 +83,7 @@ int update_user(UserData& user) {
 
     do {
         cout << endl << "pilih role (admin/stack/queue)" << endl;
-    cout << "Role Baru      : ";
+        cout << "Role Baru      : "; 
         cin >> role;
 
         // cek role
@@ -140,4 +141,10 @@ LoginReturn login(string username, string password) {
         }
     }
     return data;
+}
+
+void add_user(){
+    UserData new_user;
+    update_user(new_user);
+    DB.push_back(new_user);
 }

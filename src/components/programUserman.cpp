@@ -24,6 +24,7 @@ int programUserman(){
         cout << " untuk Update user atau" << endl;
 
         // Menu lainnya
+        cout << endl;
         cout << "   " << size + 1 << ") Tambah User" << endl        // size + 1 == add
              << "   " << size + 2 << ") Delete User" << endl        // size + 2 == del
              << "   " << size + 3 << ") Keluar"      << endl        // size + 3 == exit
@@ -41,8 +42,19 @@ int programUserman(){
 
         // Add User
         if (index == size + 1){
-            UserData new_user;
-            
+            clrscr();
+            cout << "\t\tAdd User" << endl;
+
+            add_user();
+            store_user();
+            init();
+
+            cout << endl << "Update User Telah berhasil !!!!"
+                 << endl << "klik tombol apapun untuk melanjutkan...";
+
+            getch();
+            cin.clear();
+
         }
 
         // sebelum update / del cek terlebih dahulu apakah ada user
