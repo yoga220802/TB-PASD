@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "../modules/userman.cpp"
 #include "../utils/utilityFunctions.h"
 
@@ -35,12 +36,13 @@ int programUserman(){
 
         // Keluar sebagai admin
         if (index == size + 3){
-            return 0;
+            break;
         }
 
         // Add User
         if (index == size + 1){
-
+            UserData new_user;
+            
         }
 
         // sebelum update / del cek terlebih dahulu apakah ada user
@@ -48,20 +50,35 @@ int programUserman(){
 
         }
 
-        // Update
+        // Update user
         if (index >=1 && index <= size){
+            clrscr();
+            UserData &user = DB[index - 1];
 
+            cout << "\t\tUpdate User"   << endl             << endl
+                 << "Username : "       << user.username    << endl
+                 << "Password : "       << user.password    << endl
+                 << "Role     : "       << user.role        << endl
+                 << endl;
+            
+            update_user(user);
+            store_user();
+            init();
+
+            cout << endl << "Update User Telah berhasil !!!!"
+                 << endl << "klik tombol apapun untuk melanjutkan...";
+
+            getch();
+            cin.clear();
         }
 
         // Delete User
         if (index == size + 2){
 
         }
-
-
-        cin >> index;
-        break;
     }
+    cout << endl << "klik tombol apapun untuk melanjutkan...";
+    getch();
     return 0;
 }
 

@@ -16,8 +16,8 @@ UserData *curr_user = nullptr;
 
 
 void init();
-bool find_user(string username, string password);
-void update_user(UserData &user);
+bool find_user(string username);
+int update_user(UserData &user);
 void store_user();
 void display();
 
@@ -44,24 +44,56 @@ void init() {
     DB_USERS.close();
 }
 
-bool find_user(string username, string password) {
+bool find_user(string username) {
     for (UserData& user : DB) {
-        if (user.username == username && user.password == password) {
-            curr_user = &user;
-            return true;
+        if (user.username == username) {
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
 
-void update_user(UserData& user) {
-    // TODO: WIP
+int update_user(UserData& user) {
+    string username, role;
+
+    while (true) {
     cout << "Username Baru  : ";
-    cin >> user.username;
+        cin >> username;
+
+        // mencari username yang sama
+        if (!find_user(username)) {
+            user.username = username;
+            break;
+        }
+
+        cout << "Tidak dapat menggunakan username yang sama"
+             << endl << "Coba Lagi !!!" << endl << endl;
+    }
+
+    // new password
     cout << "Password Baru  : ";
     cin >> user.password;
+    
+    // user saat ini tidak dapat ganti role jika user saat ini sebagai admin
+    if (curr_user->username == user.username && user.role == "admin"){
+        cout << "Gunakan admin lainya untuk mengubah role admin" << endl;
+        return 0;
+    }
+
+    do {
+        cout << endl << "pilih role (admin/stack/queue)" << endl;
     cout << "Role Baru      : ";
-    cin >> user.role;
+        cin >> role;
+
+        // cek role
+        if (role == "admin" || role == "stack" || role == "queue"){
+            user.role = role;
+            break;
+        }
+
+        cout << "Pastikan anda memilih salah satu role yang telah di sediakan" << endl;
+    } while (true);
+    return 1;
 }
 
 void store_user() {
