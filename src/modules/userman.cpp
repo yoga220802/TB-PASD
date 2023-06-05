@@ -84,7 +84,7 @@ void display() {
              << endl 
              << "Daftar User (" << DB.size() << ")" << endl
              << garis("-", 50) << endl 
-             << "NO\t" << "Username\t" << "Password\t" << "ROle" << endl;
+             << "NO\t" << "Username\t" << "Password\t" << "Role" << endl;
         for (int i=0; i < DB.size(); i++){
             UserData& user = DB[i];
             cout << i+1 << "\t" 
