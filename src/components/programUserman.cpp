@@ -57,9 +57,9 @@ int programUserman(){
 
         }
 
-        // sebelum update / del cek terlebih dahulu apakah ada user
+        // sebelum update / del cek terlebih dahulu apakah ada user di database
         if (DB.empty()){
-
+            cout << "Harap masukan terlebih dahulu user" << endl;
         }
 
         // Update user
@@ -77,17 +77,31 @@ int programUserman(){
             store_user();
             init();
 
-            cout << endl << "Update User Telah berhasil !!!!"
-                 << endl << "klik tombol apapun untuk melanjutkan...";
-
-            getch();
-            cin.clear();
+            cout << endl << "Update User Telah berhasil !!!!";
         }
 
         // Delete User
         if (index == size + 2){
-
+            int choice;
+            cout << endl << "Pilih user [1 - " << size << "] >> ";
+            cin >> choice;
+    
+            UserData &user = DB[choice - 1];
+    
+            if (user.username == curr_user->username){
+                cout << endl << "Anda tidak dapat menghapus user saat ini " 
+                     << endl << "gunakan admin lain untuk menghapus admin";
+            } else {
+                DB.erase(DB.begin() + (choice - 1));
+                store_user();
+                init();
+                cout << "Menghapus user berhasil" << endl;
+            }
         }
+
+        cout << endl << "klik tombol apapun untuk melanjutkan...";
+        getch();
+        cin.clear();
     }
     cout << endl << "klik tombol apapun untuk melanjutkan...";
     getch();
