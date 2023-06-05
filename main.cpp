@@ -5,7 +5,7 @@ using namespace std;
 
 #include "./src/components/programStack.cpp"
 #include "./src/components/programQueue.cpp"
-#include "./src/components/programUseman.cpp"
+#include "./src/components/programUserman.cpp"
 
 #include "./src/utils/dataType.h"
 #include "./src/utils/utilityFunctions.h"
