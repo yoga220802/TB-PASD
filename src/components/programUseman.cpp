@@ -13,6 +13,9 @@ int programUserman(){
     while (true){
         clrscr();
         cout << "Program User Manager" << endl;
+
+        display();
+
         cin >> index;
         break;
     }

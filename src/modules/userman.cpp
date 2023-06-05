@@ -77,10 +77,21 @@ void store_user() {
 }
 
 void display() {
-    cout << "----------" << endl;
-    cout << "USERS (" << DB.size() << ")" << endl;
-    for (UserData& user : DB) {
-        cout << user.username << ":" << user.password << ":" << user.role << endl;
+    if (DB.empty()){
+        cout << endl << endl << "Tidak ada user " << endl;
+    } else {
+        cout << endl 
+             << endl 
+             << "Daftar User (" << DB.size() << ")" << endl
+             << garis("-", 50) << endl 
+             << "NO\t" << "Username\t" << "Password\t" << "ROle" << endl;
+        for (int i=0; i < DB.size(); i++){
+            UserData& user = DB[i];
+            cout << i+1 << "\t" 
+                 << user.username << "\t\t" 
+                 << user.password << "\t\t" 
+                 << user.role << endl;
+        }
     }
 }
 
