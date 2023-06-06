@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 #include "./src/components/programStack.cpp"
 #include "./src/components/programQueue.cpp"
+#include "./src/components/programUserman.cpp"
 
 #include "./src/utils/dataType.h"
-#include "./src/utils/login.cpp"
 #include "./src/utils/utilityFunctions.h"
 
 int main() {
@@ -21,7 +22,6 @@ int main() {
     int index;
 
     while(true){
-        // WIP
         clrscr();
         cout << endl << "Selamat Datang Di Program Lamaran" << endl
              << garis("-", 50) << endl
@@ -35,7 +35,6 @@ int main() {
         cin.clear();
         cin.ignore();
 
-        // langsung cek jika pilih menu 2
         if (index == 2) break;
         if (index != 1) continue;
 
@@ -58,8 +57,7 @@ int main() {
 
         if (auth.role == "admin") {
             // admin
-            cout << "Selamat datang admin (" << username << ")" << endl;
-            break;
+            programUserman();            
         } else if (auth.role == "stack") {
             // stack user
             sisaPelamar = programStack(dataPelamar, sisaPelamar);
