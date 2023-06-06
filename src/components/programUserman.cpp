@@ -49,10 +49,8 @@ int programUserman(){
             store_user();
             init();
 
-            cout << endl << "Update User Telah berhasil !!!!"
-                 << endl << "klik tombol apapun untuk melanjutkan...";
+            cout << endl << "Update User Telah berhasil !!!!";
 
-            getch();
             cin.clear();
 
         }
