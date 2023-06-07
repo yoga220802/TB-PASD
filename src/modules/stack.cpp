@@ -12,21 +12,23 @@ public:
         stack.push_back(data);
     }
 
-    void pop() {
+    string pop() {
         if (stack.empty()) {
-            cout << "Stack kosong" << endl;
+            return "";
         } else {
-            stack.pop_back();
-        }
+        string top = stack.back();
+        stack.pop_back();
+        return top;
+        } 
     }
 
-    void clear() {
+    void clear_stack() {
         stack.clear();
     }
 
     void show_stack() {
         if (stack.empty()) {
-            cout << "Stack kosong" << endl;
+            cout << "Tumpukan kosong" << endl;
         } else {
             for (int i = 0; i < stack.size(); ++i) {
                 cout << i + 1 << ". " << stack[i] << endl;
