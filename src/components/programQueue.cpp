@@ -28,18 +28,17 @@ vector<string> programQueue() {
         clrscr(); // Bersihkan layar setiap kali program queue dimulai
 
         cout << "\t\tProgram Antrian Calon Pegawai" << endl
-        << "\nPosisi anda sebagai pelamar pekerjaan.\nSilahkan pilih menu dibawah ini" << endl << endl
-        << "1. Berikan antrian" << endl
-        << "2. Ambil Surat Lamaran" << endl
+        << "\nPosisi anda sebagai pelamar pekerjaan.\nSilahkan pilih menu dibawah ini" << endl << endl;
+        // menampilkan seluruh pelamar
+        cout << endl << "\tAntrian Pelamar" << endl;
+        programQueue.show_queue();
+        cout << endl << "1. Ambil antrian" << endl
+        << "2. Berikan Surat Lamaran" << endl
         << "3. Logout" << endl;
         cout << endl << "Pilih Menu >> "; cin >> pilihan;
         cin.ignore();
 
-        if (pilihan < 3) {
-            // menampilkan seluruh pelamar
-            cout << endl << "\tAntrian Pelamar" << endl;
-            programQueue.show_queue();
-        }
+        
 
         switch (pilihan)
         {

@@ -41,21 +41,19 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
     do {
         clrscr(); // Persihkan layar setiap kali program stack dimulai
         cout << "\t\tProgram Penerimaan Pegawai" << endl
-        << "\nPosisi anda sebagai penerima lamaran.\nSilahkan pilih menu dibawah ini" << endl << endl
-        << "1. Terima Surat Lamaran" << endl
+        << "\nPosisi anda sebagai penerima lamaran.\nSilahkan pilih menu dibawah ini" << endl << endl;
+        // menampilkan seluruh pelamar
+        cout << endl << "\tTumpukan Surat Lamaran" << endl;
+        programStack.show_stack();
+        cout << endl << "1. Terima Surat Lamaran" << endl
         << "2. Baca Surat Lamaran" << endl
         << "3. Buang Semua Surat Lamaran" << endl
         << "4. Logout" << endl
         << endl << "Pilih Menu >> "; cin >> pilihan;
         cin.ignore();
 
-        if (pilihan < 4) {
-            // menampilkan seluruh pelamar
-            cout << endl << "\tTumpukan Surat Lamaran" << endl;
-            programStack.show_stack();
 
-        }
-        
+            
         switch (pilihan) {
         // kondisi user memilih untuk menerima surat lamaran baru
         case 1:

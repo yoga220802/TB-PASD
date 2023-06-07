@@ -126,19 +126,14 @@ void display() {
     }
 }
 
-LoginReturn login(string username, string password) {
-    LoginReturn data;
-    data.loggedIn = false;
-    data.role = "";
+bool login(string username, string password) {
     for (UserData& user : DB) {
         if (user.username == username && user.password == password) {
             curr_user = &user;
-            data.loggedIn = true;
-            data.role = curr_user->role;
-            return data;
+            return true;
         }
     }
-    return data;
+    return false;
 }
 
 void add_user(){
