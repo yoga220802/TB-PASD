@@ -14,7 +14,7 @@ int main() {
     init();
 
     string username, password;
-    LoginReturn auth;
+    bool auth;
 
     vector<string> dataPelamar; // menampung hasil return dari program queue 
     vector<string> sisaPelamar;
@@ -45,7 +45,7 @@ int main() {
         cout << "Password : "; getline(cin, password);
 
         auth = login(username, password);
-        if (!auth.loggedIn) {
+        if (!auth) {
             cout << "Tidak dapat ijin akses" << endl
                  << endl << "klik tombol apapun untuk melanjutkan...";
             getch();
@@ -55,13 +55,13 @@ int main() {
 
         cout << endl << endl << "Login Berhasil" << endl << endl;
 
-        if (auth.role == "admin") {
+        if (curr_user->role == "admin") {
             // admin
             programUserman();            
-        } else if (auth.role == "stack") {
+        } else if (curr_user->role == "stack") {
             // stack user
             sisaPelamar = programStack(dataPelamar, sisaPelamar);
-        } else if (auth.role == "queue") {
+        } else if (curr_user->role == "queue") {
             // Queue User
             dataPelamar = programQueue();
         }

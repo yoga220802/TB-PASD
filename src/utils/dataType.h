@@ -10,9 +10,4 @@ struct UserData {
     string role;
 };
 
-struct LoginReturn {
-    bool loggedIn;
-    string role;
-};
-
 #endif
