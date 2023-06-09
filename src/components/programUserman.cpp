@@ -18,18 +18,16 @@ int programUserman(){
         
         display();                                      // Display Users
 
-        cout << "pilih 1";
+        cout << "pilih [ 1";
         if (size > 1)
             cout << " - " << size;
-        cout << " untuk Update user atau" << endl;
+        cout << " ] untuk Update user atau" << endl;
 
         // Menu lainnya
         cout << endl;
         cout << "   " << size + 1 << ") Tambah User" << endl        // size + 1 == add
              << "   " << size + 2 << ") Delete User" << endl        // size + 2 == del
-             << "   " << size + 3 << ") Keluar"      << endl        // size + 3 == exit
-             << endl;
-        
+             << "   " << size + 3 << ") Keluar"      << endl;       // size + 3 == exit        
 
         index = getInput("\nPilih [1 - " + to_string(size + 3) + "] >> ");
 
