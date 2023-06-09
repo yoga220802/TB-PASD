@@ -79,19 +79,21 @@ int programUserman(){
         // Delete User
         else if (index == size + 2){
             int choice;
-            cout << endl << "Pilih user [1 - " << size << "] >> ";
-            cin >> choice;
-    
-            UserData &user = DB[choice - 1];
-    
-            if (user.username == curr_user->username){
-                cout << endl << "Anda tidak dapat menghapus user saat ini " 
-                     << endl << "gunakan admin lain untuk menghapus admin";
-            } else {
-                DB.erase(DB.begin() + (choice - 1));
-                store_user();
-                init();
-                cout << "Menghapus user berhasil" << endl;
+            choice = getInput("Pilih user [1 - " + to_string(size) + "] >> ");
+            if (choice < 1 || choice > size){
+                cout << endl << "Input tidak valid. Silakan coba lagi." << endl;
+            } else {                
+                UserData &user = DB[choice - 1];
+        
+                if (user.username == curr_user->username){
+                    cout << endl << "Anda tidak dapat menghapus user saat ini " 
+                        << endl << "gunakan admin lain untuk menghapus admin";
+                } else {
+                    DB.erase(DB.begin() + (choice - 1));
+                    store_user();
+                    init();
+                    cout << "Menghapus user berhasil" << endl;
+                }
             }
         }
         else {
