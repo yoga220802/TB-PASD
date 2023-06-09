@@ -16,7 +16,7 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
     vector<string> _dataLamaran = dataLamaran; // Penampung data pelamar dari program queue
     vector<string> _sisaLamaran = sisaLamaran; // Penampung data pelamar dari program queue
     int pilihan; // penampung menu pilihan user
-    string pelamar; // penampung nama pelamar jika ingin menambahkan
+    string pelamar, confirmClear; // penampung nama pelamar jika ingin menambahkan
 
     /*
     cek data pelamar dari program queue
@@ -90,10 +90,17 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
         
         case 3:
             // konfirmasi bahwa data dalam stack akan dihapus
-            cout << endl << "Data dalam tumpukan akan dihapus" << endl;;
+            cout << endl << "Data dalam tumpukan akan dihapus, apakah anda yakin? "; cin >> confirmClear;
+            if (confirmClear == "Y" || confirmClear == "y") {
             programStack.clear_stack();
             _sisaLamaran.clear();
             _dataLamaran.clear();
+
+            cout << endl << "Tumpukan lamaran berhasil dihapus" << endl;
+            } else {
+                cout << endl << "Menghapus tumpukan lamaran dibatalkan" << endl;
+            }
+            
             break;
 
         case 4:

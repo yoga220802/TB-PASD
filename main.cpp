@@ -24,11 +24,11 @@ int main() {
     while(true){
         clrscr();
         cout << endl << "Selamat Datang Di Program Lamaran" << endl
-             << garis("-", 50) << endl
-             << "Silahkan login terlebih dahulu untuk masuk ke program lamaran" << endl
-             << "1) Login" << endl
-             << "2) Keluar " << endl << endl
-             << "Pilih [1-2] >> ";
+            << garis("-", 50) << endl
+            << "Silahkan login terlebih dahulu untuk masuk ke program lamaran" << endl
+            << "1) Login" << endl
+            << "2) Keluar " << endl << endl
+            << "Pilih [1-2] >> ";
 
         cin >> index;
 
@@ -63,7 +63,8 @@ int main() {
             sisaPelamar = programStack(dataPelamar, sisaPelamar);
         } else if (curr_user->role == "queue") {
             // Queue User
-            dataPelamar = programQueue();
+            vector<string> temp = programQueue();
+            dataPelamar.insert(dataPelamar.end(), temp.begin(), temp.end());
         }
     }
 
