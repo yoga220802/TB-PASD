@@ -35,8 +35,8 @@ vector<string> programQueue() {
         cout << endl << "1. Ambil antrian" << endl
         << "2. Berikan Surat Lamaran" << endl
         << "3. Logout" << endl;
-        cout << endl << "Pilih Menu >> "; cin >> pilihan;
-        cin.ignore();
+        // cout << endl << "Pilih Menu >> "; cin >> pilihan;
+        pilihan = getInput("Pilih Menu >> ");
 
         
 
@@ -84,6 +84,7 @@ vector<string> programQueue() {
             }
 
         default:
+            cout << endl << "Input tidak valid. Silakan coba lagi." << endl;
             break;
         }
 

@@ -28,12 +28,10 @@ int programUserman(){
         cout << "   " << size + 1 << ") Tambah User" << endl        // size + 1 == add
              << "   " << size + 2 << ") Delete User" << endl        // size + 2 == del
              << "   " << size + 3 << ") Keluar"      << endl        // size + 3 == exit
-             << endl <<  "Pilih [1 - " << size + 3 << "] >> ";
+             << endl;
+        
 
-        cin >> index;
-
-        cin.clear();
-        cin.ignore();
+        index = getInput("\nPilih [1 - " + to_string(size + 3) + "] >> ");
 
         // Keluar sebagai admin
         if (index == size + 3){
@@ -61,15 +59,15 @@ int programUserman(){
         }
 
         // Update user
-        if (index >=1 && index <= size){
+        else if (index >=1 && index <= size){
             clrscr();
             UserData &user = DB[index - 1];
 
             cout << "\t\tUpdate User"   << endl             << endl
-                 << "Username : "       << user.username    << endl
-                 << "Password : "       << user.password    << endl
-                 << "Role     : "       << user.role        << endl
-                 << endl;
+                << "Username : "       << user.username    << endl
+                << "Password : "       << user.password    << endl
+                << "Role     : "       << user.role        << endl
+                << endl;
             
             update_user(user);
             store_user();
@@ -79,7 +77,7 @@ int programUserman(){
         }
 
         // Delete User
-        if (index == size + 2){
+        else if (index == size + 2){
             int choice;
             cout << endl << "Pilih user [1 - " << size << "] >> ";
             cin >> choice;
@@ -95,6 +93,9 @@ int programUserman(){
                 init();
                 cout << "Menghapus user berhasil" << endl;
             }
+        }
+        else {
+            cout << endl << "Input tidak valid. Silakan coba lagi." << endl;
         }
 
         cout << endl << "klik tombol apapun untuk melanjutkan...";

@@ -27,16 +27,11 @@ int main() {
             << garis("-", 50) << endl
             << "Silahkan login terlebih dahulu untuk masuk ke program lamaran" << endl
             << "1) Login" << endl
-            << "2) Keluar " << endl << endl
-            << "Pilih [1-2] >> ";
-
-        cin >> index;
-
-        cin.clear();
-        cin.ignore();
+            << "2) Keluar " << endl << endl;
+            index = getInput("Pilih [1-2] >> ");
 
         if (index == 2) break;
-        if (index != 1) continue;
+        else if (index != 1) continue;
 
         clrscr();
 
@@ -47,7 +42,7 @@ int main() {
         auth = login(username, password);
         if (!auth) {
             cout << "Tidak dapat ijin akses" << endl
-                 << endl << "klik tombol apapun untuk melanjutkan...";
+                << endl << "klik tombol apapun untuk melanjutkan...";
             getch();
             cin.clear();
             continue;

@@ -48,9 +48,9 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
         cout << endl << "1. Terima Surat Lamaran" << endl
         << "2. Baca Surat Lamaran" << endl
         << "3. Buang Semua Surat Lamaran" << endl
-        << "4. Logout" << endl
-        << endl << "Pilih Menu >> "; cin >> pilihan;
-        cin.ignore();
+        << "4. Logout" << endl;
+        
+        pilihan = getInput("Pilihan menu >> ");
 
 
             
@@ -109,6 +109,7 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
             break;
 
         default:
+            cout << endl << "Input tidak valid. Silakan coba lagi." << endl;
             break;
         }
 
