@@ -35,7 +35,6 @@ vector<string> programQueue() {
         cout << endl << "1. Ambil antrian" << endl
         << "2. Berikan Surat Lamaran" << endl
         << "3. Logout" << endl;
-        // cout << endl << "Pilih Menu >> "; cin >> pilihan;
         pilihan = getInput("Pilih Menu >> ");
 
         
@@ -78,14 +77,14 @@ vector<string> programQueue() {
             // pemberitahuan bahwa berhasil logout
             cout << endl << "Logout berhasil, dan semua antrian dihapus" << endl;
             programQueue.clear_queue();
-            break;
             } else {
                 cout << "Batal logout";
             }
+            break;
 
         default:
             cout << endl << "Input tidak valid. Silakan coba lagi." << endl;
-            break;
+            // break;
         }
 
     cout << endl << "klik tombol apapun untuk melanjutkan...";

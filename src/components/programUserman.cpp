@@ -54,7 +54,7 @@ int programUserman(){
         }
 
         // sebelum update / del cek terlebih dahulu apakah ada user di database
-        if (DB.empty()){
+        else if (DB.empty()){
             cout << "Harap masukan terlebih dahulu user" << endl;
         }
 
