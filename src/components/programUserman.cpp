@@ -14,10 +14,13 @@ int programUserman(){
         int size = DB.size();
 
         clrscr();
-        cout << endl << "\t\tProgram User Manager" << endl;
+        cout << garis("=", 50) << endl
+        << "\t\tProgram User Manager" << endl
+        << garis("=", 50);
         
         display();                                      // Display Users
 
+        cout << garis("-", 50) << endl;
         cout << "pilih [ 1";
         if (size > 1)
             cout << " - " << size;
@@ -28,7 +31,7 @@ int programUserman(){
         cout << "   " << size + 1 << ") Tambah User" << endl        // size + 1 == add
              << "   " << size + 2 << ") Delete User" << endl        // size + 2 == del
              << "   " << size + 3 << ") Keluar"      << endl;       // size + 3 == exit        
-
+        cout << garis("-", 50) << endl;
         index = getInput("\nPilih [1 - " + to_string(size + 3) + "] >> ");
 
         // Keluar sebagai admin

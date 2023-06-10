@@ -16,7 +16,7 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
 
     // pembuatan variabel
     vector<string> _dataLamaran = dataLamaran; // Penampung data pelamar dari program queue
-    vector<string> _sisaLamaran = sisaLamaran; // Penampung data pelamar dari program queue
+    vector<string> _sisaLamaran = sisaLamaran; // Penampung sisa pelamar sebelumnya
     int pilihan; // penampung menu pilihan user
     string pelamar, confirmClear; // penampung nama pelamar jika ingin menambahkan
 
@@ -27,13 +27,11 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
     if (!_dataLamaran.empty()) {
         for (int i = 0; i < _dataLamaran.size(); i++) {
             programStack.push(_dataLamaran[i]);
-            cout << _dataLamaran[i];
         }
     }
 
     if (!_sisaLamaran.empty()) {
         for (int i = 0; i < _sisaLamaran.size(); i++) {
-            cout << _sisaLamaran[i];
             programStack.push(_sisaLamaran[i]);
         }
         // _sisaLamaran.clear();
@@ -42,20 +40,26 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
     // menu program utama
     do {
         clrscr(); // Persihkan layar setiap kali program stack dimulai
-        cout << "\t\tProgram Penerimaan Pegawai" << endl
-        << "\nPosisi anda sebagai penerima lamaran.\nSilahkan pilih menu dibawah ini" << endl << endl;
+        cout << garis("=", 50) << endl
+        <<"\tProgram Penerimaan Pegawai" << endl
+        << garis("=", 50) << endl;
+
+        cout << "\nPosisi anda sebagai penerima lamaran.\nSilahkan pilih menu dibawah ini" << endl << endl;
+
+        cout << "Menu Utama :" << endl
+        << "  1. Terima Surat Lamaran" << endl
+        << "  2. Baca Surat Lamaran" << endl
+        << "  3. Buang Semua Surat Lamaran" << endl
+        << "  4. Logout" << endl;
+
         // menampilkan seluruh pelamar
-        cout << endl << "\tTumpukan Surat Lamaran" << endl;
+        cout << endl << garis("-", 50) << endl << endl
+        << "Surat lamaran yang ada : " << endl;
         programStack.show_stack();
-        cout << endl
-        << "1. Terima Surat Lamaran" << endl
-        << "2. Baca Surat Lamaran" << endl
-        << "3. Buang Semua Surat Lamaran" << endl
-        << "4. Logout" << endl;
-        
+
+        cout << endl << endl<< garis("-", 50) << endl;
+
         pilihan = getInput("Pilihan menu >> ");
-
-
             
         switch (pilihan) {
         // kondisi user memilih untuk menerima surat lamaran baru

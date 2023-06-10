@@ -19,28 +19,32 @@ vector<string> programQueue() {
     int pilihan; // penampung menu pilihan user
     string pelamar, confirmLogout = "y"; // penampung nama pelamar yang akan dimasukan ke antrian 
 
-    /*
-    cek data pelamar yang dibawa saat login
-    jika tidak kosong maka semua data dimasukan ke objek queue
-     */
-
     // menu program utama
     do {
         clrscr(); // Bersihkan layar setiap kali program queue dimulai
 
-        cout << "\t\tProgram Antrian Calon Pegawai" << endl
-        << "\nPosisi anda sebagai pengatur pelamar pekerjaan.\nSilahkan pilih menu dibawah ini" << endl << endl;
-        // menampilkan seluruh pelamar
-        cout << endl << "\tAntrian Pelamar" << endl;
-        programQueue.show_queue();
-        cout << endl
-        << "1. Berikan antrian" << endl
-        << "2. Ambil Surat Lamaran" << endl
-        << "3. Logout" << endl;
-        pilihan = getInput("Pilih Menu >> ");
+        cout << garis("=", 50) << endl
+        << "\tProgram Antrian Calon Pegawai" << endl
+        << garis("=", 50) << endl;
 
         
+        cout << "\nPosisi anda sebagai pengatur pelamar pekerjaan.\nSilahkan pilih menu dibawah ini" << endl << endl;
 
+        cout << "Menu Utama: " << endl
+        << "  1. Berikan antrian" << endl
+        << "  2. Ambil Surat Lamaran" << endl
+        << "  3. Logout" << endl;
+
+        // menampilkan seluruh pelamar
+        cout << endl << garis("-", 50) << endl << endl
+        << "Antrian Pelamar : " << endl;
+        programQueue.show_queue();
+
+        cout << endl << endl
+        << garis("-", 50) << endl;
+
+        pilihan = getInput("Pilih Menu >> ");
+        
         switch (pilihan)
         {
         // kondisi user memilih untuk antrian lamaran

@@ -18,15 +18,15 @@ int main() {
     bool auth;
 
     vector<string> dataPelamar; // menampung hasil return dari program queue 
-    vector<string> sisaPelamar;
+    vector<string> sisaPelamar; // menampung hasil return dari program stack
     
     int index;
 
     while(true){
         clrscr();
-        cout << endl << "Selamat Datang Di Program Lamaran" << endl
-            << garis("-", 50) << endl
-            << "Silahkan login terlebih dahulu untuk masuk ke program lamaran" << endl
+        cout << endl << "\tSelamat Datang Di Program Lamaran" << endl
+            << garis("=", 50) << endl
+            << "Menu Utama: " << endl
             << "1) Login" << endl
             << "2) Info" << endl
             << "3) Keluar " << endl << endl;
@@ -34,7 +34,9 @@ int main() {
 
         if (index == 1) {
         clrscr();
-        cout << endl << "LOGIN" << endl << garis("-", 50) << endl;
+        cout << endl << "\t" << garis("=", 15) << " LOGIN " << garis("=", 15)<< endl
+        << endl << "*Masuk menggunakan username dan password dari admin" << endl
+        << garis("~", 50) << endl;
         cout << "Username : "; getline(cin, username);
         cout << "Password : "; getline(cin, password);
 
