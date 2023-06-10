@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <conio.h>
+#include <string>
+
 using namespace std;
 
 // import file tambahan
@@ -45,7 +47,8 @@ vector<string> programStack(vector<string> dataLamaran, vector<string> sisaLamar
         // menampilkan seluruh pelamar
         cout << endl << "\tTumpukan Surat Lamaran" << endl;
         programStack.show_stack();
-        cout << endl << "1. Terima Surat Lamaran" << endl
+        cout << endl
+        << "1. Terima Surat Lamaran" << endl
         << "2. Baca Surat Lamaran" << endl
         << "3. Buang Semua Surat Lamaran" << endl
         << "4. Logout" << endl;
