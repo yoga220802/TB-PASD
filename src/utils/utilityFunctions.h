@@ -2,6 +2,7 @@
 #define UTILITYFUNCTIONS_H
 
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -17,5 +18,16 @@ string garis(string type, int jml) {
 void clrscr() {
     cout << "\033c";
 }
+
+int getInput(string message) {
+    int choice;
+    cout << message;
+    if (!(cin >> choice)) {
+        cin.clear();
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return choice;
+}
+
 
 #endif

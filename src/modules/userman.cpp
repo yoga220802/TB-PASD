@@ -14,13 +14,6 @@ fstream DB_USERS;
 vector<UserData> DB;
 UserData *curr_user = nullptr;
 
-void init();
-bool find_user(string username);
-int update_user(UserData &user);
-void store_user();
-void display();
-void add_user();
-
 void init() {
     DB.clear();
 
@@ -80,8 +73,8 @@ int update_user(UserData& user) {
     }
 
     do {
-        cout << endl << "pilih role (admin/stack/queue)" << endl;
-        cout << "Role Baru      : "; 
+        cout << endl << "pilih role (admin/stack/queue)" << endl
+             << "Role Baru      : "; 
         cin >> role;
 
         // cek role
@@ -111,8 +104,7 @@ void display() {
     if (DB.empty()){
         cout << endl << endl << "Tidak ada user " << endl;
     } else {
-        cout << endl 
-             << endl 
+        cout << endl << endl 
              << "Daftar User (" << DB.size() << ")" << endl
              << garis("-", 50) << endl 
              << "NO\t" << "Username\t" << "Password\t" << "Role" << endl;

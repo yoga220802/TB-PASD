@@ -28,7 +28,7 @@ public:
 
     void show_queue() {
         if (queue.empty()) {
-            cout << "Queue kosong" << endl;
+            cout << "Antrian kosong" << endl;
         } else {
             for (int i = 0; i < queue.size(); ++i) {
                 cout << i + 1 << ". " << queue[i] << endl;
