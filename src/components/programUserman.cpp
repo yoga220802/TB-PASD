@@ -46,7 +46,6 @@ int programUserman(){
 
             add_user();
             store_user();
-            init();
 
             cout << endl << "Update User Telah berhasil !!!!";
 
@@ -72,7 +71,6 @@ int programUserman(){
             
             update_user(user);
             store_user();
-            init();
 
             cout << endl << "Update User Telah berhasil !!!!";
         }
@@ -92,7 +90,6 @@ int programUserman(){
                 } else {
                     DB.erase(DB.begin() + (choice - 1));
                     store_user();
-                    init();
                     cout << "Menghapus user berhasil" << endl;
                 }
             }
