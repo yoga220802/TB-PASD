@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "../utils/dataType.h"
+#include "../utils/utilityFunctions.h"
 
 #define DB_NAME "./src/DB/users.csv"
 
