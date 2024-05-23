@@ -2,7 +2,30 @@
 
 ## Program Penerimaan Pegawai
 
-### Untuk Menjalankan Program, Cukup Jalankan File main.cpp
+</br>
+
+### HOW TO RUN THIS PROJECT
+
+Clone Repository dengan run di terminal perintah ini :
+
+```
+git clone https://github.com/yoga220802/TB-PASD.git
+```
+</br>
+atau download file zip ini
+[Download Code](https://github.com/yoga220802/TB-PASD/archive/refs/heads/main.zip)
+
+</br>
+</br>
+
+Untuk Menjalankan Program, Cukup Jalankan File main.cpp
+```
+g++ main.cpp -o main && main
+```
+</br>
+</br>
+
+## Users Login
 | Info Login | Username | Password |
 |------------|----------|----------|
 | User Admin | admin    | admin    |
