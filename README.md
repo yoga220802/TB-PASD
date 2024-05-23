@@ -23,6 +23,9 @@ Untuk Menjalankan Program, Cukup Jalankan File main.cpp
 ```
 g++ main.cpp -o main && main
 ```
+
+*Sangat disarankan menggunakan text editor Visual Studio Code*
+
 </br>
 </br>
 
